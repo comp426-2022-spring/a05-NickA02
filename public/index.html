@@ -27,22 +27,25 @@
   </head>
   <body>
     <nav>
-      <button id="homenav">Home</button>
-      <button id="singlenav">Flip one coin</button>
-      <button id="multinav">Flip multiple coins</button>
-      <button id="guessnav">Guess the result</button>
+      <button onclick="showhome('home')"id="homenav">Home</button>
+      <button onclick="showhome('single')"id="singlenav">Flip one coin</button>
+      <button onclick="showhome('multi')"id="multinav">Flip multiple coins</button>
+      <button onclick="showhome('guess')"id="guessnav">Guess the result</button>
     </nav>
     <div id="home">
-      
+      <p>Hello!</p>
     </div>    
     <div id="single" class="hidden">
-      
+      <!-- A result paragraph-->
+		  <p>Result: <span id="result"></span></p>
+    <!-- An image of a US quarter (North Carolina variant) -->
+      <img src="./assets/img/coin.png" id="quarter">
     </div>
     <div id="multi" class="hidden">
-      
+
     </div>
     <div id="guess" class="hidden">
-      
+
     </div>
 	<script src="main.js"></script>
   </body>

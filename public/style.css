@@ -1,5 +1,6 @@
 div.hidden {
   display: none;
+  border: none;
 }
 
 div.active {
@@ -13,3 +14,4 @@ img.bigcoin {
 img.smallcoin {
   width: 50px;
 }
+
