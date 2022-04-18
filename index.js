@@ -75,7 +75,7 @@ app.get('/app/', (req, res) => {
     res.end(res.statusCode+ ' ' +res.statusMessage)
 });
 
-app.post('/app/flips/', (req, res, next) => {
+app.post('/app/flip/coins/', (req, res, next) => {
     const number = req.body.number || 1
 
     const flips = new Array()
@@ -85,6 +85,18 @@ app.post('/app/flips/', (req, res, next) => {
 
     //if (flips.length == 1) console.log(`{ ${flips.pop()}: 1 }`)
     res.json({raw: flips, summary:countFlips(flips)})
+});
+
+app.get('/app/flips/:number', (req, res) => {
+  const number = req.params.number || 1
+
+  const flips = new Array()
+  for (var i = 0; i < number; i++) {
+      flips.push(coinFlip())
+  }
+
+  //if (flips.length == 1) console.log(`{ ${flips.pop()}: 1 }`)
+  res.json({raw: flips, summary:countFlips(flips)})
 });
 
 app.get('/app/flip/', (req, res) => {
@@ -98,6 +110,15 @@ app.post('/app/flip/call/', (req, res) => {
     }else {
         res.status(500).json({ error: 'no input. \n Usage: node guess-flip --call=[heads|tails]' })
     }
+});
+
+app.get('/app/flip/call/:guess', (req, res) => {
+  const call = req.params.guess
+  if (call == "heads" || call == "tails") {
+      res.json({call: flipACoin(call)})
+  }else {
+      res.status(500).json({ error: 'no input. \n Usage: node guess-flip --call=[heads|tails]' })
+  }
 });
 
 if (debug != false) {

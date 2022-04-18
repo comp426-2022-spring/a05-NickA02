@@ -84,19 +84,27 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip
 ```
 
 #### Response body
 
 ```
-
+{"flip":"heads"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-N9e0DDykqBPnqphc8f4bzHcjsuM"
+Date: Mon, 18 Apr 2022 20:56:42 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flips/:number/ (GET)
@@ -104,7 +112,7 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flips/5
 ```
 
 #### Response body
@@ -116,7 +124,15 @@ Keep-Alive: timeout=5
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 65
+ETag: W/"41-hOmTJ1uvGvqte1tcHbORSHmaK3I"
+Date: Mon, 18 Apr 2022 20:48:50 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/coin/ (GET)
@@ -144,19 +160,27 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/call/heads5
 ```
 
 #### Response body
 
 ```
-
+{"call":{"call":"heads","flip":"tails","result":"lose"}}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 56
+ETag: W/"38-3PmgX/b4sU46/UP1dawlS7a6bc0"
+Date: Mon, 18 Apr 2022 21:10:59 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/ (POST)
@@ -186,12 +210,12 @@ Connection: keep-alive
 Keep-Alive: timeout=5
 ```
 
-### /app/flip/coins/ (POST)
+### /app/flips/ (POST)
 
 #### Request cURL
 
 ```
-curl -X POST -H 'Content-Type: application/json' -d '{"number":"30"}' http://localhost:5000/app/flip/coins/`
+curl -X POST -H 'Content-Type: application/json' -d '{"number":"30"}' http://localhost:5000/app/flips/`
 ```
 
 #### Response body
@@ -218,19 +242,27 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5555/app/log/access
 ```
 
 #### Response body
 
 ```
-
+[{"id":1,"remoteaddr":"::1","remoteuser":null,"time":"1650318075080.0","method":"GET","url":"/app/log/access","protocol":"http","httpversion":1.1,"status":200,"referer":null,"useragent":"curl/7.77.0"}]
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 201
+ETag: W/"c9-TGUIiTfaMIuV03Hst6pAC6qst6Q"
+Date: Mon, 18 Apr 2022 21:41:15 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/log/access/ (GET)
