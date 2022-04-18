@@ -33,19 +33,40 @@
       <button onclick="showhome('guess')"id="guessnav">Guess the result</button>
     </nav>
     <div id="home">
-      <p>Hello!</p>
+      <p>Welcome to the $0.25 Casino! Here, you can flip coins and guess their results!</p>
     </div>    
     <div id="single" class="hidden">
+      <h1>Flip a single coin!</h1>
       <!-- A result paragraph-->
 		  <p>Result: <span id="result"></span></p>
     <!-- An image of a US quarter (North Carolina variant) -->
       <img src="./assets/img/coin.png" id="quarter">
     </div>
     <div id="multi" class="hidden">
-
+      <h1>Flip many coins!</h1>
+      <form id="coins">
+				<label for="number">
+					<strong>How many coins?</strong>
+				</label>
+				<input type="number" name="number" id="number">
+				<input type="submit" value="Flip 'em!">
+			</form>
+      <p>Result: <span id="summary_result"></span></p>
+      <div id="coinspics"></div>
     </div>
     <div id="guess" class="hidden">
-
+      <h1>Guess the flip!</h1>
+      <p>What do you think the flip will be?</p>
+      <button onclick="guessflip('tails')" id="Heads">Heads</button>
+      <button onclick="guessflip('tails')" id="Tails">Tails</button>
+      <div id="call_div" class="hidden">
+        <h2>Your Guess</h2>
+        <img src="./assets/img/coin.png" id="call" class="bigcoin">
+        <h2>The Flip</h2>
+        <img src="./assets/img/coin.png" id="call_res" class="bigcoin">
+        <h2>Result</h2>
+        <p id="game_res"></p>
+      </div>
     </div>
 	<script src="main.js"></script>
   </body>

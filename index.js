@@ -9,6 +9,11 @@ const morgan = require('morgan')
 
 const HTTP_PORT = argv.port || process.env.PORT || 5555
 
+// Add cors dependency
+const cors = require('cors')
+// Set up cors middleware on all endpoints
+app.use(cors())
+
 const help = (`
 server.js [options]
 
@@ -70,7 +75,7 @@ app.get('/app/', (req, res) => {
     res.end(res.statusCode+ ' ' +res.statusMessage)
 });
 
-app.get('/app/flips/', (req, res) => {
+app.post('/app/flips/', (req, res, next) => {
     const number = req.body.number || 1
 
     const flips = new Array()
@@ -86,7 +91,7 @@ app.get('/app/flip/', (req, res) => {
     res.json({ flip: coinFlip() })
 });
 
-app.get('/app/flip/call/', (req, res) => {
+app.post('/app/flip/call/', (req, res) => {
     const call = req.body.guess
     if (call == "heads" || call == "tails") {
         res.json({call: flipACoin(call)})
