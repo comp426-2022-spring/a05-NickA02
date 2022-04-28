@@ -28,7 +28,7 @@ function flipCoin() {
         coin.disabled = true
     })
 }
-coins = document.getElementById("coins")
+const coins = document.getElementById("coins")
 coins.addEventListener("submit", flip_many_coins)
 
 async function flip_many_coins(event) {
@@ -40,7 +40,7 @@ async function flip_many_coins(event) {
 
     const plainFormData = Object.fromEntries(formData.entries());
 
-    fetch('http://localhost:5555/app/flips/', {mode: 'cors', method: 'POST', headers: {
+    fetch('http://localhost:5555/app/flip/coins', {mode: 'cors', method: 'POST', headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
     }, body: JSON.stringify(plainFormData)})
